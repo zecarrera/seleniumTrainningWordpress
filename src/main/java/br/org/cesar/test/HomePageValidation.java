@@ -18,7 +18,11 @@ public class HomePageValidation extends BaseTestcase{
 
 
 	/**
-	 *  Open home screen and verify page title 
+	 * Objective: Open home screen and verify title
+	 * 
+	 * Steps: Navigate to home screen and assert title text
+	 * 
+	 * Expected Results: Home screen title is correct
 	 */
 	@Test
 	public void assertHomeScreenTitle() {
@@ -29,7 +33,11 @@ public class HomePageValidation extends BaseTestcase{
 	
 	
 	/**
-	 *  Navigates to Curso Selenium Page
+	 * Objective: Navigates to Curso Selenium Page and verify displayed title
+	 * 
+	 * Steps: Navigate to  Curso Selenium Page and assert displayed title text
+	 * 
+	 * Expected Results: Curso Selenium Page  title is correct
 	 */
 	@Test
 	public void navigateToCursoSeleniumPage() {
@@ -40,7 +48,11 @@ public class HomePageValidation extends BaseTestcase{
 	
 	
 	/**
-	 *  Navigates to Formulario Simples Page
+	 * Objective: Navigates to Formulario Simples Pageand verify displayed title
+	 * 
+	 * Steps: Navigate to  Formulario Simples Page and assert displayed title text
+	 * 
+	 * Expected Results: Formulario Simples Page title is correct
 	 */
 	@Test
 	public void navigateToFormularioSimplesPage() {
@@ -51,7 +63,11 @@ public class HomePageValidation extends BaseTestcase{
 	
 	
 	/**
-	 *  Performs a search with fixed text on page 
+	 * Objective: Search results screen is properly displayed
+	 * 
+	 * Steps: Performs a search with fixed text and assert displayed title text
+	 * 
+	 * Expected Results: Search results Page title is correct
 	 */
 	@Test
 	public void performSimpleSearch() {
@@ -63,7 +79,11 @@ public class HomePageValidation extends BaseTestcase{
 
 	
 	/**
-	 * Performs a search with empty text
+	 * Objective: Specific page is loaded when empty text is used on search
+	 * 
+	 * Steps: Performs a search with empty text and assert displayed page
+	 * 
+	 * Expected Results: User is redirected to proper Page
 	 */
 	@Test
 	public void searchEmptyText(){
@@ -73,9 +93,12 @@ public class HomePageValidation extends BaseTestcase{
 		HomePage.isHeaderTitleCorrect("Olá, mundo!");
 	}
 			
-	
 	/**
-	 * Performs a search that does not return results
+	 * Objective:  Performs a search that does not return results
+	 * 
+	 * Steps:  Performs a search that does not return results and assert displayed page
+	 * 
+	 * Expected Results: Search results title indicates that no results were found
 	 */
 	@Test
 	public void searchWithoutResults(){
@@ -86,7 +109,11 @@ public class HomePageValidation extends BaseTestcase{
 	}
 	
 	/**
-	 *  Performs a search with fixed text on page (with screenshot) 
+	 * Objective: Search results screen is properly displayed (capturing screenshot)
+	 * 
+	 * Steps: Performs a search with fixed text and assert displayed title text
+	 * 
+	 * Expected Results: Search results Page title is correct
 	 */
 	@Test
 	public void performSimpleSearchScrenshot() {
@@ -97,6 +124,23 @@ public class HomePageValidation extends BaseTestcase{
 		HomePage.isSearchResultCorrect("Resultados da pesquisa por: teste");
 	}
 	
+	
+	/**
+	 * Objective: Fill out response with different user info
+	 * 
+	 * Steps: Clicks on "deixe uma resposta", changes user info
+	 * 
+	 * Expected Results: User info can be modified prior to submitting response
+	 */
+	@Test
+	public void changeUserInfo() {
+		HomePage.clickDeixeUmaRespostaBox();
+//		HomePage.fillOutComment("comentario");
+		HomePage.fillOutNome("novo nome");
+		HomePage.fillOutEmail("novoemail@tste.com");
+		HomePage.fillOutURL("novaurl");
+		HomePage.publishComment();
+	}
 	@After
 	public void after() throws Exception {
 	}

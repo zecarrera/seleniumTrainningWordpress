@@ -47,7 +47,12 @@ public class HomePage {
 	
 	static By hiddenOptionsButton = By.cssSelector("a.widget-handle.genericon");
 	static By searchField = By.name("s");
-	
+	static By deixeUmaRespostaBox = By.id("comment");
+	static By mudarLinkText = By.linkText("Mudar");
+	static By emailField = By.id("email");
+	static By authorField = By.id("author");
+	static By urlField = By.id("url");
+	static By submitCommentButton = By.id("comment-submit");
 	static By pageHeaderTitle = By.className("entry-title");
 	static By searchResultsTitle = By.cssSelector("h1.page-title");
 	
@@ -108,9 +113,71 @@ public class HomePage {
 		driver.findElement(searchField).sendKeys(Keys.RETURN); 
 	}
 
+	/**
+	 * Clicar no box "Deixe uma resposta"
+	 */
+	public static void clickDeixeUmaRespostaBox(){
+		driver.findElement(deixeUmaRespostaBox).click();
+	}
 	
 	/**
-	 * Checks if page header displayed title is correct
+	 * Preencher comentario no box "Deixe uma resposta"
+	 */
+	public static void fillOutComment(String comentario){
+		driver.findElement(deixeUmaRespostaBox).clear();
+		driver.findElement(deixeUmaRespostaBox).sendKeys(comentario);
+	}
+	
+	/**
+	 * Clicar no link Mudar no box "Deixe uma resposta"
+	 */
+	public static void clickMudarLink(){
+		driver.findElement(mudarLinkText).click();
+	}
+	
+	/**
+	 * Preencher nome no box "Deixe uma resposta"
+	 */
+	public static void fillOutNome(String autor){
+		driver.findElement(authorField).clear();
+		driver.findElement(authorField).sendKeys(autor);
+	}
+	
+	/**
+	 * Preencher url no box "Deixe uma resposta"
+	 */
+	public static void fillOutURL(String url){
+		driver.findElement(urlField).clear();
+		driver.findElement(urlField).sendKeys(url);
+	}
+	
+	/**
+	 * Preencher email no box "Deixe uma resposta"
+	 */
+	public static void fillOutEmail(String email){
+		driver.findElement(emailField).clear();
+		driver.findElement(emailField).sendKeys(email);
+	}
+	
+	/**
+	 * Clicar no botão "publicar comentário"
+	 */
+	public static void publishComment(){
+		driver.findElement(submitCommentButton).click();
+	}
+	
+	/**
+	 * Preencher dados de usuario no box "Deixe uma resposta"
+	 */
+	public static void fillUserInfo(String autor, String url, String email){
+		Utils.isVisible(authorField);
+		fillOutNome(autor);
+		fillOutEmail(email);
+		fillOutURL(url);
+	}
+	
+	/**
+	 * Verifica se o titulo da página (exibido no navegador) é o esperado
 	 */
 	public static void isHeaderTitleCorrect(String expectedTitle){
 		assertThat("Título da página Incorreto", driver.findElement(pageHeaderTitle).getText(), is(expectedTitle)); 
@@ -118,7 +185,7 @@ public class HomePage {
 	
 	
 	/**
-	 * Asserts page title value
+	 * Verifica se o título exibido na página possui o valor esperado
 	 */
 	public static void isTitleCorrect(String expectedTitle){
 		assertThat("Título Incorreto", driver.getTitle(), is(expectedTitle)); 
@@ -132,7 +199,7 @@ public class HomePage {
 	}
 	
 	/**
-	 * Asserts page result title value
+	 * Verifica se o título da página de resultados de busca está correto
 	 */
 	public static void isSearchResultCorrect(String expectedTitle){
 		assertThat("Título Incorreto",  driver.findElement(searchResultsTitle).getText(), is(expectedTitle)); 

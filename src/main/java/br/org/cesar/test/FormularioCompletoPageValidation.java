@@ -23,12 +23,69 @@ public class FormularioCompletoPageValidation extends BaseTestcase{
 
 
 	/**
-	 *  Enviar um formulario com sucesso
+	 * Objective: Form is successfully sent
+	 * 
+	 * Steps: Fill out all mandatory fields, set gender to male and RSS to checked and submit form
+	 * 
+	 * Expected Results: Success message is displayed
 	 */
 	@Test
-	public void submitFormSuccessfully() {
+	public void submitFormSuccessfullyMaleGenderRSSChecked() {
 		FormularioCompletoPage.fillOutFormularioCompleto("jose", "Pernambuco",true, true);
 		FormularioCompletoPage.assertSuccessMessageIsShown();
+	}
+		
+	/**
+	 * Objective: Form is successfully sent
+	 * 
+	 * Steps: Fill out all mandatory fields, set gender to male and RSS to unchecked and submit form
+	 * 
+	 * Expected Results: Success message is displayed
+	 */
+	@Test
+	public void submitFormSuccessfullyMaleGenderRSSUnchecked() {
+		FormularioCompletoPage.fillOutFormularioCompleto("jose", "Pernambuco",true, false);
+		FormularioCompletoPage.assertSuccessMessageIsShown();
+	}
+	
+	/**
+	 * Objective: Form is successfully sent
+	 * 
+	 * Steps: Fill out all mandatory fields, set gender to female, RSS to checked and submit form
+	 * 
+	 * Expected Results: Success message is displayed
+	 */
+	@Test
+	public void submitFormSuccessfullyFemaleGenderRSSChecked() {
+		FormularioCompletoPage.fillOutFormularioCompleto("jose", "Pernambuco",false, true);
+		FormularioCompletoPage.assertSuccessMessageIsShown();
+	}
+	
+	/**
+	 * Objective: Form is successfully sent
+	 * 
+	 * Steps: Fill out all mandatory fields, set gender to female, RSS to unchecked and submit form
+	 * 
+	 * Expected Results: Success message is displayed
+	 */
+	@Test
+	public void submitFormSuccessfullyFemaleGenderRSSUnchecked() {
+		FormularioCompletoPage.fillOutFormularioCompleto("jose", "Pernambuco",false, false);
+		FormularioCompletoPage.assertSuccessMessageIsShown();
+	}
+	
+	/**
+	 * Objective: Error message is shown if name is empty
+	 * 
+	 * Steps: Fill out all mandatory fields and set name to empty value
+	 * 
+	 * Expected Results: Error message is displayed and form is not submitted
+	 */
+	@Test
+	public void nameFieldEmpty(){
+		FormularioCompletoPage.fillOutFormularioCompleto("", "Pernambuco", true, true);
+		FormularioCompletoPage.assertErrorMessageIsShown();
+		FormularioCompletoPage.assertDetailedErrorMessageIsShown("Nome é obrigatório");
 	}
 	
 	

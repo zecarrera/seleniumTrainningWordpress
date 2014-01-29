@@ -28,7 +28,7 @@ public class BaseTestcase {
 			driver = Selenium.getDriver();
 			driver.navigate().to(Property.SITE_ADDRESS);
 			driver.manage().window().maximize();
-			loginWordpress();
+//			loginWordpress();
 		}
 	}
 	
@@ -45,7 +45,7 @@ public class BaseTestcase {
 	
 	private static void loginWordpress(){
 		driver.findElement(usernameLocator).sendKeys("zecarrera84");
-		driver.findElement(passwordLocator).sendKeys("Vill@gio803");
+		driver.findElement(passwordLocator).sendKeys("senha");
 		driver.findElement(signinButtonLocator).submit();
 	}
 }

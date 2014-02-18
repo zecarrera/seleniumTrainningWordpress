@@ -16,7 +16,7 @@ import br.org.cesar.test.HomePageValidation;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({ 
 	HomePageValidation.class,
-	FormularioSimplesPageValidation.class,
+//	FormularioSimplesPageValidation.class,
 	FormularioCompletoPageValidation.class
 	})
 

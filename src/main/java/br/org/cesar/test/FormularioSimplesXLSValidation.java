@@ -51,8 +51,8 @@ public class FormularioSimplesXLSValidation extends BaseTestcase{
 	 */
 	@Test
 	public void openFaleConoscoPage(){
-		FormularioSimplesPage.clickFormularioSimplesMenuItem();
+		driver.navigate().to("http://classedetestes.wordpress.com/formulario-simples/");
 		FormularioSimplesPage.fillOutFormularioSimples(this.nome, this.email, this.assunto, this.mensagem);
-		FormularioSimplesPage.assertErrorMessageIsShown();
+		FormularioSimplesPage.assertSuccessMessageIsShown();
 	}
 }

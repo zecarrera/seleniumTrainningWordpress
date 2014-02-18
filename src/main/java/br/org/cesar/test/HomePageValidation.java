@@ -3,6 +3,7 @@ package br.org.cesar.test;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 import br.org.cesar.common.HomePage;
 import br.org.cesar.util.Utils;

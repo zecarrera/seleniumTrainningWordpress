@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.org.cesar.common.FormularioCompletoPage;
+import br.org.cesar.common.HomePage;
 import br.org.cesar.util.Utils;
 
 /**
@@ -13,12 +14,13 @@ import br.org.cesar.util.Utils;
 public class FormularioCompletoPageValidation extends BaseTestcase{
 
 	/**
-	 * Antes de cada teste acessa a página de formulário simples
+	 * Antes de cada teste acessa a página de formulário completo
 	 * @throws Exception
 	 */
 	@Before
 	public void before() throws Exception {
-		driver.navigate().to("http://classedetestes.wordpress.com/formulario-completo/");
+		HomePage.clickSeleniumMenuItem();
+		HomePage.clicksubMenuItem("Formulário Completo");
 	}
 
 

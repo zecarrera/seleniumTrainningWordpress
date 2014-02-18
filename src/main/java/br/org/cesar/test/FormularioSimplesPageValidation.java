@@ -19,7 +19,8 @@ public class FormularioSimplesPageValidation extends BaseTestcase{
 	 */
 	@Before
 	public void before() throws Exception {
-		driver.navigate().to("http://classedetestes.wordpress.com/formulario-simples/");
+		HomePage.clickSeleniumMenuItem();
+		HomePage.clicksubMenuItem("Formulário Simples");
 	}
 
 

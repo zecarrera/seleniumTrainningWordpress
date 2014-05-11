@@ -1,15 +1,13 @@
 package br.org.cesar.test;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import br.org.cesar.common.FormularioCompletoPage;
 import br.org.cesar.common.HomePage;
-import br.org.cesar.util.Utils;
 
 /**
- * Classe de testes com cenários relacionados a página inicial
+ * Classe de testes com cenários relacionados a página de formulario completo
  */
 public class FormularioCompletoPageValidation extends BaseTestcase{
 

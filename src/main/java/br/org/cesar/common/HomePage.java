@@ -43,6 +43,7 @@ public class HomePage {
 	static By seleniumMenuItem = By.linkText("SELENIUM");
 	static By cursoSeleniumSubMenuItem = By.linkText("CURSO SELENIUM");
 	static By formularioSimplesMenuItem = By.linkText("FORMULÁRIO SIMPLES");
+	static By formularioCompletoMenuItem = By.linkText("FORMULÁRIO COMPLETO");
 
 	
 	static By hiddenOptionsButton = By.cssSelector("a.widget-handle.genericon");
@@ -84,6 +85,8 @@ public class HomePage {
 			correctLocator = cursoSeleniumSubMenuItem;
 		} else if (subMenu.equalsIgnoreCase("Formulário Simples")){
 			correctLocator = formularioSimplesMenuItem;
+		} else if (subMenu.equalsIgnoreCase("Formulário Completo")){
+			correctLocator = formularioCompletoMenuItem;
 		}
 		Utils.isVisible(correctLocator);
 		driver.findElement(correctLocator).click();

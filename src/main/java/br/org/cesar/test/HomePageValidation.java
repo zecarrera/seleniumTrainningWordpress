@@ -3,7 +3,6 @@ package br.org.cesar.test;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import br.org.cesar.common.HomePage;
 import br.org.cesar.util.Utils;
@@ -19,56 +18,53 @@ public class HomePageValidation extends BaseTestcase{
 
 
 	/**
-	 * Objective: Open home screen and verify title
+	 * Objetivo: Abrir a home screen e verificar o titulo
 	 * 
-	 * Steps: Navigate to home screen and assert title text
+	 * Passos: Navegar para a home screen e verificar o titulo
 	 * 
-	 * Expected Results: Home screen title is correct
+	 * Resultado Esperado: Titulo da home screen está correto
 	 */
 	@Test
 	public void assertHomeScreenTitle() {
-//		Utils.takeScreenshot("maximized");
 		HomePage.clickHomeMenuItem();
 		HomePage.isTitleCorrect("Classe de Testes | Testes e Qualidade de Software");
 	}
 	
 	
 	/**
-	 * Objective: Navigates to Curso Selenium Page and verify displayed title
+	 * Objetivo: Navegar para a pagina Curso Selenium e verificar o titulo exibido
 	 * 
-	 * Steps: Navigate to  Curso Selenium Page and assert displayed title text
+	 * Passos: Navegar para a pagina Curso Selenium, em seguida verificar o titulo exibido
 	 * 
-	 * Expected Results: Curso Selenium Page  title is correct
+	 * Resultado Esperado:Titulo da página está correto
 	 */
 	@Test
 	public void navigateToCursoSeleniumPage() {
-		HomePage.clickSeleniumMenuItem();
-		HomePage.clicksubMenuItem("Curso Selenium");
+		HomePage.clickMenuElement("selenium", "curso selenium");
 		HomePage.isHeaderTitleCorrect("Curso Selenium");
 	}
 	
 	
 	/**
-	 * Objective: Navigates to Formulario Simples Pageand verify displayed title
+	 * Objetivo: Navegar para a pagina Formulario Simples e verificar o titulo
 	 * 
-	 * Steps: Navigate to  Formulario Simples Page and assert displayed title text
+	 * Passos: Navegar para a pagina Formulario Simples e verificar o titulo exibido
 	 * 
-	 * Expected Results: Formulario Simples Page title is correct
+	 * Resultado Esperado:Titulo da página está correto
 	 */
 	@Test
 	public void navigateToFormularioSimplesPage() {
-		HomePage.clickSeleniumMenuItem();
-		HomePage.clicksubMenuItem("Formulário Simples");
+		HomePage.clickMenuElement("selenium", "formulário simples");
 		HomePage.isHeaderTitleCorrect("Formulário Simples");
 	}
 	
 	
 	/**
-	 * Objective: Search results screen is properly displayed
+	 * Objetivo: Página de resultados da busca é exibida corretamente
 	 * 
-	 * Steps: Performs a search with fixed text and assert displayed title text
+	 * Passos: Realiza busca com texto fixo e verifica o título da página de resultados
 	 * 
-	 * Expected Results: Search results Page title is correct
+	 * Resultado Esperado: Título da página de resultados está correto
 	 */
 	@Test
 	public void performSimpleSearch() {
@@ -80,11 +76,11 @@ public class HomePageValidation extends BaseTestcase{
 
 	
 	/**
-	 * Objective: Specific page is loaded when empty text is used on search
+	 * Objetivo: Página Olá mundo é exibida quando buscamos por texto vazio
 	 * 
-	 * Steps: Performs a search with empty text and assert displayed page
+	 * Passos: Realiza busca com texto vazio e verifica o título da página
 	 * 
-	 * Expected Results: User is redirected to proper Page
+	 * Resultado Esperado: Usuário é redirecionado para a página adequada
 	 */
 	@Test
 	public void searchEmptyText(){
@@ -95,26 +91,26 @@ public class HomePageValidation extends BaseTestcase{
 	}
 			
 	/**
-	 * Objective:  Performs a search that does not return results
+	 * Objetivo:  Realizar busca que não retorna resultados
 	 * 
-	 * Steps:  Performs a search that does not return results and assert displayed page
+	 * Passos:  Realizar busca utilizando termo que não retorne resultados e verificar página exibida
 	 * 
-	 * Expected Results: Search results title indicates that no results were found
+	 * Resultado Esperado: Título informa que nenhum resultado foi encontrado
 	 */
 	@Test
 	public void searchWithoutResults(){
 		HomePage.showHiddenOptions();
 		HomePage.performSearch("futebol");
 		HomePage.clickSearchButton();
-		HomePage.isHeaderTitleCorrect("Nada Encontrado");
+		HomePage.isHeaderTitleCorrect("Nada encontrado");
 	}
 	
 	/**
-	 * Objective: Search results screen is properly displayed (capturing screenshot)
+	 * Objetivo: Página de resultados é exibida corretamente
 	 * 
-	 * Steps: Performs a search with fixed text and assert displayed title text
+	 * Passos: Realiza busca com termo que retorne resultados e verifica título exibido
 	 * 
-	 * Expected Results: Search results Page title is correct
+	 * Resultados Esperados: Página de resultados exibe título correto
 	 */
 	@Test
 	public void performSimpleSearchScrenshot() {
@@ -127,16 +123,18 @@ public class HomePageValidation extends BaseTestcase{
 	
 	
 	/**
-	 * Objective: Fill out response with different user info
+	 * Objetivo: Preencher comentário com dados de usuario
 	 * 
-	 * Steps: Clicks on "deixe uma resposta", changes user info
+	 * Pré-Condição: Usuário não está logado no wordpress
 	 * 
-	 * Expected Results: User info can be modified prior to submitting response
+	 * Passos: Clicar na caixa de comentario e preencher os campos de usuario
+	 * 
+	 * Resultados Esperados: Informações de usuário podem ser inseridas e comentario publicado
 	 */
 	@Test
 	public void changeUserInfo() {
 		HomePage.clickDeixeUmaRespostaBox();
-//		HomePage.fillOutComment("comentario");
+		HomePage.fillOutComment("comentario");
 		HomePage.fillOutNome("novo nome");
 		HomePage.fillOutEmail("novoemail@tste.com");
 		HomePage.fillOutURL("novaurl");

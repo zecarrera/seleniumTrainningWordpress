@@ -39,11 +39,12 @@ public class FormularioSimplesXLSValidation extends BaseTestcase {
 	}
 
 	@Parameters
-	public static Collection spreadsheetData() throws IOException {
+	public static Collection<Object[]> spreadsheetData() throws IOException {
 		InputStream spreadsheet = new FileInputStream(
 				"src\\main\\resources\\faleConoscoInput.xls");
 		return new SpreadsheetData(spreadsheet).getData();
 	}
+	
 /*
 	@Parameters
 	public static Collection data() {
@@ -61,6 +62,5 @@ public class FormularioSimplesXLSValidation extends BaseTestcase {
 		FormularioSimplesPage.fillOutFormularioSimples(this.nome, this.email,
 				this.assunto, this.mensagem);
 		FormularioSimplesPage.assertSuccessMessageIsShown();
-
 	}
 }

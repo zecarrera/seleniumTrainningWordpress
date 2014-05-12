@@ -17,17 +17,16 @@ public class FormularioCompletoPageValidation extends BaseTestcase{
 	 */
 	@Before
 	public void before() throws Exception {
-		HomePage.clickSeleniumMenuItem();
-		HomePage.clicksubMenuItem("Formulário Completo");
+		HomePage.clickMenuElement("selenium", "Formulário Completo");
 	}
 
 
 	/**
-	 * Objective: Form is successfully sent
+	 * Objetivo: Formulario é submetido com sucesso
 	 * 
-	 * Steps: Fill out all mandatory fields, set gender to male and RSS to checked and submit form
+	 * Passos: Preencher campos obrigatorios, definir sexo para masculino e marcar opcao RSS em seguida submeter formulario
 	 * 
-	 * Expected Results: Success message is displayed
+	 * Resultados Esperados: Mensagem de sucesso é exibida
 	 */
 	@Test
 	public void submitFormSuccessfullyMaleGenderRSSChecked() {
@@ -36,11 +35,11 @@ public class FormularioCompletoPageValidation extends BaseTestcase{
 	}
 		
 	/**
-	 * Objective: Form is successfully sent
+	 * Objetivo: Formulario é submetido com sucesso
 	 * 
-	 * Steps: Fill out all mandatory fields, set gender to male and RSS to unchecked and submit form
+	 * Passos: Preencher campos obrigatorios, definir sexo para masculino e RSS desmarcado em seguida submeter formulario
 	 * 
-	 * Expected Results: Success message is displayed
+	 * Resultados Esperados: Mensagem de sucesso é exibida
 	 */
 	@Test
 	public void submitFormSuccessfullyMaleGenderRSSUnchecked() {
@@ -49,11 +48,11 @@ public class FormularioCompletoPageValidation extends BaseTestcase{
 	}
 	
 	/**
-	 * Objective: Form is successfully sent
+	 * Objetivo: Formulario é submetido com sucesso
 	 * 
-	 * Steps: Fill out all mandatory fields, set gender to female, RSS to checked and submit form
+	 * Passos: Preencher campos obrigatorios, definir sexo para feminino e marcar opcao RSS em seguida submeter formulario
 	 * 
-	 * Expected Results: Success message is displayed
+	 * Resultados Esperados: Mensagem de sucesso é exibida
 	 */
 	@Test
 	public void submitFormSuccessfullyFemaleGenderRSSChecked() {
@@ -62,11 +61,11 @@ public class FormularioCompletoPageValidation extends BaseTestcase{
 	}
 	
 	/**
-	 * Objective: Form is successfully sent
+	 * Objetivo: Formulario é submetido com sucesso
 	 * 
-	 * Steps: Fill out all mandatory fields, set gender to female, RSS to unchecked and submit form
+	 * Passos: Preencher campos obrigatorios, definir sexo para feminino e RSS desmarcado em seguida submeter formulario
 	 * 
-	 * Expected Results: Success message is displayed
+	 * Resultados Esperados: Mensagem de sucesso é exibida
 	 */
 	@Test
 	public void submitFormSuccessfullyFemaleGenderRSSUnchecked() {
@@ -75,11 +74,11 @@ public class FormularioCompletoPageValidation extends BaseTestcase{
 	}
 	
 	/**
-	 * Objective: Error message is shown if name is empty
+	 * Objetivo: Mensagem de erro é exibida se nome estiver vazio
 	 * 
-	 * Steps: Fill out all mandatory fields and set name to empty value
+	 * Passos: Preencher campos, porém deixar nome vazio e submeter formulário
 	 * 
-	 * Expected Results: Error message is displayed and form is not submitted
+	 * Resultado Esperado: Mensagem de erro é exibida e formulário não é enviado
 	 */
 	@Test
 	public void nameFieldEmpty(){

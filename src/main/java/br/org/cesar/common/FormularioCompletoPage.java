@@ -14,7 +14,7 @@ import br.org.cesar.util.Utils;
 
 
 /*
- * Executa todas as acoes na pagina formulario simples
+ * Executa todas as acoes na pagina formulario completo
  */
 public class FormularioCompletoPage {
 
@@ -22,14 +22,12 @@ public class FormularioCompletoPage {
 	 * Instancia privada do webDriver que vira da suite de teste
 	 */
 	private static final WebDriver driver;
-	private static final WebDriverWait wait;
 
 	/*
 	 * Construtor que ira adicionar a instancia do WebDriver para utilizacao dos metodos
 	 */
 	static {
 		driver = Selenium.getDriver();
-		wait = new WebDriverWait(driver, 10);
 	}
 	
 	 // The home page contains several HTML elements that will be represented as WebElements.
@@ -49,7 +47,7 @@ public class FormularioCompletoPage {
 	
 	
 	/**
-	 * Fills out Nome field
+	 * Preencher campo nome
 	 */
 	public static void fillOutNome(String nome){
 		driver.findElement(nameField).clear();
@@ -57,14 +55,14 @@ public class FormularioCompletoPage {
 	}
 	
 	/**
-	 * Fills out Estado field
+	 * Preencher campo Estado
 	 */
 	public static void fillOutEstado(String estado){
 		new Select(driver.findElement(estadoField)).selectByVisibleText(estado);
 	}
 	
 	/**
-	 * Fills out Sexo field
+	 * Preencher campo Sexo
 	 */
 	public static void fillOutSexo(boolean isSexoMasculino){
 		if (isSexoMasculino){
@@ -75,7 +73,7 @@ public class FormularioCompletoPage {
 	}
 	
 	/**
-	 * Marks RSS checkbox
+	 * Marcar checkbox RSS
 	 */
 	public static void fillOutRSS(boolean isMarked){
 		if(isMarked){
@@ -88,14 +86,14 @@ public class FormularioCompletoPage {
 	}
 	
 	/**
-	 * Click enviar button for formulario completo form
+	 * Clicar botao enviar
 	 */
 	public static void clickEnviarButton(){
 		driver.findElement(enviarButtonLocator).click();
 	}
 	
 	/**
-	 * Fills out formulario completo
+	 * Preencher formulario completo
 	 */
 	public static void fillOutFormularioCompleto(String nome, String estado, boolean isSexoMasculino, boolean RSSAtivo){
 		fillOutNome(nome);
@@ -107,7 +105,7 @@ public class FormularioCompletoPage {
 	
 	
 	/**
-	 * Asserts if success message is shown on formulario completo page
+	 * Verificar se mensagem de sucesso é exibida corretamente
 	 */
 	public static void assertSuccessMessageIsShown(){
 		Utils.isVisible(tituloMensagemFormularioCompleto);
@@ -115,7 +113,7 @@ public class FormularioCompletoPage {
 	}
 	
 	/**
-	 * Asserts if error message is shown on formulario completo page
+	 * Verificar se mensagem de erro é exibida corretamente
 	 */
 	public static void assertErrorMessageIsShown() {
 		Utils.isVisible(tituloMensagemFormularioCompleto);
@@ -123,8 +121,8 @@ public class FormularioCompletoPage {
 	}
 
 	/**
-	 * Asserts if the detailed error message after submitting formularios simples is correct
-	 * Checks the first detailed message displayed
+	 * Verificar se mensagem de erro detalhada é exibida corretamente
+	 * Verifica a primeira mensagem detalhada
 	 */
 	public static void assertDetailedErrorMessageIsShown(String errorMessage){
 		Utils.isVisible(mensagemDetalhadaFormularioCompleto);

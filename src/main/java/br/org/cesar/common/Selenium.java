@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
+//import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 
@@ -38,7 +38,7 @@ public class Selenium {
 				driver = new InternetExplorerDriver(capabilities);
 			}else  if (Browser.FIREFOX.equals(browser)){
 				driver = new FirefoxDriver();
-			}else if (Browser.PHANTOMJS.equals(browser)){
+			}/*else if (Browser.PHANTOMJS.equals(browser)){
 				DesiredCapabilities desiredCapabilities = DesiredCapabilities.phantomjs();
 				File file = new File(Property.PHANTOMJS_DRIVE_PATH);
 				System.setProperty("phantomjs.binary.path", file.getAbsolutePath());
@@ -47,7 +47,7 @@ public class Selenium {
 				driver = new PhantomJSDriver(desiredCapabilities);
 			} else if(Browser.HTMLDRIVER.equals(browser)){
 				driver = new HtmlUnitDriver();
-			}
+			}*/
 		}
 		return driver;
 	}

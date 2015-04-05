@@ -1,11 +1,12 @@
 package br.org.cesar.test;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import br.org.cesar.common.HomePage;
 import br.org.cesar.util.Utils;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.TimeoutException;
+
 
 /**
  * Classe de testes com cenários relacionados a página inicial
@@ -14,6 +15,7 @@ public class HomePageValidation extends BaseTestcase{
 
 	@Before
 	public void before() throws Exception {
+		//driver.manage().window().maximize();
 	}
 
 
@@ -140,7 +142,24 @@ public class HomePageValidation extends BaseTestcase{
 		HomePage.fillOutURL("novaurl");
 		HomePage.publishComment();
 	}
+
+	/**
+	 * Exemplo utilização do screenshot apenas ao ocorrer exception
+	 */
+	@Test
+	public void assertHomeScreenTitleWithScrenshot() {
+		try{
+			HomePage.clickHomeMenuItem();
+			HomePage.isTitleCorrect("teste");
+		} catch (AssertionError t) {
+			Utils.takeScreenshot("failed");
+			Assert.fail();
+		}
+	}
+
 	@After
 	public void after() throws Exception {
+		//Dimension tamanhoJanela= new Dimension(400,400);
+		//driver.manage().window().setSize(tamanhoJanela);
 	}
 }

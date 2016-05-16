@@ -50,6 +50,7 @@ public class FormularioCompletoPage {
 	 * Preencher campo nome
 	 */
 	public static void fillOutNome(String nome){
+		Utils.isVisible(nameField);
 		driver.findElement(nameField).clear();
 		driver.findElement(nameField).sendKeys(nome);
 	}
